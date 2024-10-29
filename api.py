@@ -9,15 +9,15 @@ import json
 # Set up logging
 logging.basicConfig(filename='credential_detection.log', level=logging.INFO, format='%(asctime)s - %(message)s')
 
-# # Step 1: Set up the tokenizer and model (If transformers-cli is configured)
-# model_name = "Qwen/Qwen2.5-0.5B"
-# tokenizer = AutoTokenizer.from_pretrained(model_name)
-# model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2, device_map="auto", low_cpu_mem_usage=True)
+# Step 1: Set up the tokenizer and model (If transformers-cli is configured)
+model_name = "Qwen/Qwen2.5-0.5B"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2, device_map="auto", low_cpu_mem_usage=True)
 
-# Step 1: Set up the tokenizer and model
-model_path = "./local_qwen_2.5-0.5b"  # Path to the downloaded local model
-tokenizer = AutoTokenizer.from_pretrained(model_path)
-model = AutoModelForSequenceClassification.from_pretrained(model_path, num_labels=2, device_map="auto", low_cpu_mem_usage=True)
+# # Step 1: Set up the tokenizer and model (For using local model after download)
+# model_path = "./local_qwen_2.5-0.5b"  # Path to the downloaded local model
+# tokenizer = AutoTokenizer.from_pretrained(model_path)
+# model = AutoModelForSequenceClassification.from_pretrained(model_path, num_labels=2, device_map="auto", low_cpu_mem_usage=True)
 
 
 # Step 2: Define the credential detection function with enhanced pattern matching and context awareness
